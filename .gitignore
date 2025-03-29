@@ -3,3 +3,4 @@ tmp/
 proxmox-backup-client*.tgz
 /.env.mk
 /release/
+*.swp

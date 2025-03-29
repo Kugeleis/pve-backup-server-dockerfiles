@@ -1,15 +1,16 @@
-version: '2.1'
-
 services:
   pbs:
     image: ayufan/proxmox-backup-server:${TAG:-latest}
     ports:
       - 8007:8007
+    environment:
+      TZ: Europe/Berlin
     mem_limit: 2G
     volumes:
       - pbs_etc:/etc/proxmox-backup
       - pbs_logs:/var/log/proxmox-backup
       - pbs_lib:/var/lib/proxmox-backup
+      - /mnt/HDDaten/backup/pve:/backups
     tmpfs:
       - /run
     cap_add: # smartctl support
